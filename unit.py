@@ -175,7 +175,6 @@ st.markdown('<p style="text-align: center; margin-bottom: 30px;">Convert between
 
 category = st.selectbox("Select measurement category", list(unit_categories.keys()))
 
-st.markdown('<div class="converter-card">', unsafe_allow_html=True)
 
 units = unit_categories[category]
 
@@ -197,10 +196,8 @@ if convert_button:
         result = convert_temperature(input_value, input_unit, output_unit)
         unit_symbols = {"Celsius": "°C", "Fahrenheit": "°F", "Kelvin": "K"}
         
-        st.markdown('<div class="result-container">', unsafe_allow_html=True)
         st.markdown("### Conversion Result")
         st.markdown(f"<h2 style='text-align: center; color: #1E88E5;'>{input_value} {unit_symbols[input_unit]} = {result:.6g} {unit_symbols[output_unit]}</h2>", unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
     else:
         result = input_value * units[input_unit] / units[output_unit]
         
@@ -209,6 +206,5 @@ if convert_button:
         
         st.markdown("<p style='text-align: center;'><i>Conversion Formula:</i></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='text-align: center; font-family: monospace;'>{input_value} × ({units[input_unit]}) ÷ ({units[output_unit]})</p>", unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('<div class="footer">Made with ❤️ by Nihal Khan Ghouri</div>', unsafe_allow_html=True)
